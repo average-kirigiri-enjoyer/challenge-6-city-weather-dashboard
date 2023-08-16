@@ -20,7 +20,7 @@ View my [PROJECT] here;
 
 ## Credits
 
-reset.css file (./assets/reset.css);
+reset.css file (./assets/css/reset.css);
 https://meyerweb.com/eric/tools/css/reset/
 
 ## License
