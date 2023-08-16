@@ -2,7 +2,7 @@
 
 ## Description
 
-weekly challenge for module 6; creating a website to retrieve and display upcoming weather data for a specific city
+***(PLACEHOLDER)*** weekly challenge for module 6; creating a website to retrieve and display upcoming weather data for a specific city
 
 [DESCRIPTION OF PROJECT'S INSPIRATION & PURPOSE]
 
