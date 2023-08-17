@@ -29,22 +29,76 @@ Last Edited 2023/08/17
 
     </div>
 
-    <div class = "city-content city-search">
+    <div class = "main-content">
 
-        <h2>Search for a City:</h2>
-        <input class = "search-input" placeholder = "Toronto"/>
-        <button class = "search-button">Search</button>
+        <div class = "city-content">
 
+            <div class = "city-search">
+
+                <h2>Search for a City:</h2>
+                <input class = "search-input" placeholder = "Toronto"/>
+                <button class = "search-button">Search</button>
+
+            </div>
+
+            <ul class = "search-history">
+
+                <li><button>Scarborough</button></li>
+                <li><button>Mississauga</button></li>
+                <li><button>Newmarket</button></li>
+                <li><button>Richmond Hill</button></li>
+
+            </ul>
+
+        </div>
+
+        <div class = "weather-content">
+
+            <div class = "weather-today">
+
+                <h2 class = "city-name">Toronto (2023/08/17)</h2>
+                <p class = temperature>Temp: 21.0°C</p>
+                <p class = wind-speed>16.2 KM / H</p>
+                <p class = humidity>27%</p>
+
+            </div>
+
+            <div class = "weather-five-day">
+
+                <h3>5-Day Forecast</h3>
+
+                <div class = day-one>
+
+                    <h4>2023/08/18</h4>
+
+                </div>
+
+                <div class = day-two>
+
+                    <h4>2023/08/18</h4>
+
+                </div>
+
+                <div class = day-three>
+
+                    <h4>2023/08/18</h4>
+
+                </div>
+
+                <div class = day-four>
+
+                    <h4>2023/08/18</h4>
+
+                </div>
+
+                <div class = day-five>
+
+                    <h4>2023/08/18</h4>
+
+                </div>
+            </div>
+        </div>
     </div>
-
-    <ul class = "city-content search-history">
-
-        <li><button>Scarborough</button></li>
-        <li><button>Mississauga</button></li>
-        <li><button>Newmarket</button></li>
-        <li><button>Richmond Hill</button></li>
-
-    </ul>
 
     <script src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src = "https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js" integrity = "sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin = "anonymous"></script>

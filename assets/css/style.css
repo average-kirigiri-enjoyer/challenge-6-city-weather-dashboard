@@ -20,10 +20,17 @@ Last Edited 2023/08/17
     font-family: Raleway;
 }
 
-/* changes font size and weight of search for a city text */
+/* changes font size and weight of h2 elements */
 h2
 {
     font-size: 225%;
+    font-weight: bold;
+}
+
+/* changes font size and weight of h3 elements */
+h3
+{
+    font-size: 175%;
     font-weight: bold;
 }
 
@@ -51,6 +58,12 @@ button
     cursor: pointer;
 }
 
+/* buttons change colour when hovered */
+button:hover
+{
+  transition: 0.25s;
+}
+
 /* defines display settings for weather dashboard header */
 .header
 {
@@ -68,7 +81,13 @@ button
     text-align: center;
 }
 
-/* defines width and margin of city search & history sections */
+/* displays city search & history and today's & five-day forecast */
+.main-content > *
+{
+    display: inline-block;
+}
+
+/* defines width & margin of city search & history sections */
 .city-content
 {
     width: 27%;
@@ -79,13 +98,12 @@ button
 .city-search
 {
     padding-bottom: 20px;
-    border-bottom: solid 3px var(--lilac);
+    border-bottom: solid 3px var(--indigo);
 }
 
 /* defines display settings for elements within city search section */
 .city-search > *
 {
-    display: block;
     width: 100%;
     margin-top: 10px;
     padding: 10px;
@@ -99,24 +117,28 @@ button
 }
 
 /* search button changes colour when hovered */
-.search-button:hover
+.city-search button:hover
 {
   background-color: var(--lavender);
-  transition: 0.25s;
 }
 
 /* defines display settings for search history buttons */
-.city-content button
+.search-history button
 {
-    display: block;
     width: 100%;
     margin-top: 20px;
     padding: 10px;
 }
 
-/* search history buttons change colour when hovered */
-.search-history button:hover
+.weather-content
 {
-  background-color: var(--lilac);
-  transition: 0.25s;
+    width: 70%;
+    margin-right: 1%;
+    float: right;
+    border: solid 3px var(--indigo);
+}
+
+.weather-five-day div
+{
+    justify-content: space-evenly;
 }
