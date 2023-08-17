@@ -5,8 +5,33 @@ Created 2023/08/16
 Last Edited 2023/08/16
 */
 
+/* defines variables for HTML colour codes */
+:root
+{
+    --indigo: #5900ff;
+    --lavender: #a380e5;
+    --light-lavender: #cfc3e5;
+}
+
 /* changes default font */
 body
 {
     font-family: Raleway;
+}
+
+/* defines display settings for weather dashboard header */
+.header
+{
+    padding: 25px;
+    font-size: 300%;
+    font-weight: bold;
+    color: #ffffff;
+    background-image: linear-gradient(to bottom right, var(--indigo), var(--lavender));
+}
+
+/* moves weather dashboard text in header towards the right side of the page */
+.header > *
+{
+    margin-left: 20%;
+    text-align: center;
 }
