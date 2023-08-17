@@ -2,7 +2,7 @@
 ethan (average-kirigiri-enjoyer)
 SCS Boot Camp Module 6 Weekly Challenge - City Weather Dashboard
 Created 2023/08/16
-Last Edited 2023/08/16
+Last Edited 2023/08/17
 */
 
 /* defines variables for HTML colour codes */
@@ -10,12 +10,13 @@ Last Edited 2023/08/16
 {
     --indigo: #5900ff;
     --lavender: #a380e5;
-    --light-lavender: #cfc3e5;
+    --lilac: #d5beff;
 }
 
-/* changes default font */
-body
+/* sets padding & border to be included in element size, changes default font */
+*
 {
+    box-sizing: border-box;
     font-family: Raleway;
 }
 
@@ -34,4 +35,67 @@ body
 {
     margin-left: 20%;
     text-align: center;
+}
+
+/* defines width and margin of city search section */
+.city-search
+{
+    width: 27%;
+    margin-left: 1%;
+    padding-bottom: 20px;
+    border-bottom: solid 3px var(--lilac);
+}
+
+/* defines display settings for elements within city search section */
+.city-search > *
+{
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+/* changes font size and weight of search for a city text */
+h2
+{
+    font-size: 225%;
+    font-weight: bold;
+}
+
+/* defines display settings for city search input */
+input
+{
+    font-size: 150%;
+    border-radius: 10px;
+    border: solid 2px var(--indigo);
+}
+
+/* changes input border & outline colour when selected */
+input:focus
+{
+    border: solid 2px var(--lavender);
+    outline: solid 1px var(--lavender);
+}
+
+/* defines general display settings for buttons */
+button
+{
+    font-size: 125%;
+    border-radius: 10px;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+/* changes background colour of search button */
+.search-button
+{
+    background-color: var(--indigo);
+}
+
+/* search button changes colour when hovered */
+.search-button:hover
+{
+  background-color: var(--lavender);
+  transition: 0.15s;
 }
