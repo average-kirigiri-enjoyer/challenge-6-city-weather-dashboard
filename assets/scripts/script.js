@@ -34,11 +34,13 @@ async function getWeatherData(searchedCity)
 	})
 	.then(function(data)
 	{
+		//if data for the city name input by the user could not be found and inform the user as such
 		if (data[0] == undefined)
 		{
 			alert("Data for the city '" + searchedCity + "' could not be found; please try again.");
 		}
 
+		//retrieve coordinates of searched city
 		latitude = data[0].lat;
 		longitude = data[0].lon;
 	});
