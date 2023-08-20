@@ -20,6 +20,8 @@ View my ***[PROJECT]*** here;
 
 ## Credits
 
+async await syntax (./assets/scripts/script.js, line ***[LINES HERE]***); https://stackoverflow.com/questions/50417982/js-fetch-api-access-return-value
+
 reset.css file (./assets/css/reset.css);
 https://meyerweb.com/eric/tools/css/reset/
 
