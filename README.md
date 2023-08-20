@@ -22,6 +22,12 @@ View my ***[PROJECT]*** here;
 
 async await syntax (./assets/scripts/script.js, line ***[LINES HERE]***); https://stackoverflow.com/questions/50417982/js-fetch-api-access-return-value
 
+.slice() syntax (./assets/scripts/script.js, line ***[LINES HERE]***);
+https://stackoverflow.com/questions/952924/how-do-i-chop-slice-trim-off-last-character-in-string-using-javascript
+
+capitalizeFirstLetter function (./assets/scripts/script.js, line ***[LINES HERE]***);
+https://stackoverflow.com/questions/1026069/how-do-i-make-the-first-letter-of-a-string-uppercase-in-javascript
+
 reset.css file (./assets/css/reset.css);
 https://meyerweb.com/eric/tools/css/reset/
 
