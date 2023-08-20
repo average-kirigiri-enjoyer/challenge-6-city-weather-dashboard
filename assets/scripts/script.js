@@ -12,6 +12,13 @@ APIKey = "2fae20ca26e4a9b0f2e2e5c58c74a9be";
 var latitude;
 var longitude;
 
+//gets references to HTML elements necessary for weather app functionality
+var citySearchInput = $(".search-input");
+var searchButton = $(".search-button");
+var searchHistory = $(".search-history");
+var weatherToday = $(".weather-today");
+var fiveDayWeather = $(".weather-five-day").children();
+
 //today's weather
 //https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API key}
 
@@ -45,7 +52,7 @@ async function getWeatherData()
 	var todayWeatherURL = "https://api.openweathermap.org/data/2.5/weather?lat=" + latitude + "&lon=" + longitude + "&limit=1&appid=" + APIKey + "&units=metric";
 	var fiveDayWeatherURL = "http://api.openweathermap.org/data/2.5/forecast?lat=" + latitude + "&lon=" + longitude + "&limit=1&appid=" + APIKey + "&units=metric";
 
-	//retrieves today's weather data from searched city coordinates
+	//retrieves today's weather data from searched city coordinates and updates the page accordingly
 	await fetch(todayWeatherURL)
 	.then(function(response)
 	{
@@ -53,16 +60,18 @@ async function getWeatherData()
 	})
 	.then(function(data)
 	{
-		console.log("TODAY'S WEATHER IN: " + searchedCity);
-		console.log("temp: " + data.main.temp + "°C");
-		console.log("humidity: " + data.main.humidity + "%");
-		console.log("weather: " + data.weather[0].main);
-		console.log("weather description: " + data.weather[0].description);
-		console.log("icon: " + data.weather[0].icon);
-		console.log("wind: " + data.wind.speed + "KM / H");
+		//update's todays weather data with that of the searched city
+		weatherToday.children(".city-name").text(searchedCity + " (" + dayjs().format("YYYY/MM/DD") + ")");
+		weatherToday.children("img").attr("src", "http://openweathermap.org/img/w/" + data.weather[0].icon + ".png");
+		weatherToday.children(".temperature").text("Temp: " + data.main.temp + "°C");
+		weatherToday.children(".wind-speed").text("Wind: " + data.wind.speed + " KM / H");
+		weatherToday.children(".humidity").text("Humidity: " + data.main.humidity + "%");
 	});
 
-	//retrieves next five days of weather data from searched city coordinates
+	//GET CHILD ELEMENTS OF A CERTAIN DAY BY CLASS
+	//$(fiveDayWeather[0]).children(".temperature").text();
+
+	//retrieves next five days of weather data from searched city coordinates and updates the page accordingly
 	await fetch(fiveDayWeatherURL)
 	.then(function(response)
 	{
