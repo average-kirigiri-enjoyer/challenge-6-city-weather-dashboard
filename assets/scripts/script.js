@@ -108,8 +108,32 @@ async function getWeatherData(searchedCity)
 	});
 }
 
-//an inputted string has its first letter capitalized, and is then returned
-function capitalizeFirstLetter(string)
-{
-	return string.charAt(0).toUpperCase() + string.slice(1);
-}
+//waits until document is finished loading before the following code can run
+$(document).ready(function() {
+
+	//retrieves toronto's weather data as a placeholder until the user searches for a city themselves
+	getWeatherData("Toronto");
+
+	//attempts to update weather data when user clicks the search button
+	searchButton.click(function()
+	{
+		//retrieves text content of the city search box
+		searchedCity = citySearchInput.val();
+
+		//if the user did not input any text in the search box, prompts them to do so and ejects from function
+		if (!searchedCity)
+		{
+			alert("Please input a city name to search for.");
+			return;
+		}
+
+		//attempts to update weather data with that of the city the user searched for
+		getWeatherData(searchedCity);
+
+		//adds searched city to search history
+		//FUNCTION TO ADD TO SEARCH HISTORY GOES HERE
+
+		//empties search box
+		citySearchInput.val("");
+	})
+});
