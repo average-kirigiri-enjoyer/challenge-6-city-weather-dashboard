@@ -157,9 +157,14 @@ button:hover
 }
 
 /* displays icon representation of todays weather next to the date instead of below */
-.weather-today img
+.weather-today h2
 {
     display: inline-block;
+}
+.weather-today img
+{
+    position: absolute;
+    margin-left: 5px;
 }
 
 /* spaces five-day weather report evenly */
@@ -178,4 +183,10 @@ button:hover
     display: inline-block;
     color: #ffffff;
     background-color: var(--dark-grey);
+}
+
+/* slightly increases gap above five-day forecast weather icons */
+.weather-five-day img
+{
+    margin-top: 10px;
 }
