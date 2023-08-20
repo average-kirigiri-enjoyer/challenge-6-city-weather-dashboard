@@ -2,7 +2,7 @@
 ethan (average-kirigiri-enjoyer)
 SCS Boot Camp Module 6 Weekly Challenge - City Weather Dashboard
 Created 2023/08/16
-Last Edited 2023/08/17
+Last Edited 2023/08/20
 -->
 
 <!DOCTYPE html>
@@ -11,118 +11,118 @@ Last Edited 2023/08/17
 
 <head>
 
-    <meta charset = "UTF-8">
-    <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
-    <meta http-equiv = "X-UA-Compatible" content = "ie=edge"/>
-    <link rel = "stylesheet" href = "./assets/css/reset.css">
-    <link rel = "stylesheet" href = "./assets/css/style.css">
-    <link rel = "stylesheet" href = "https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,700;0,800;0,900;1,400;1,700;1,800;1,900&display=swap">
-    <title>City Weather Dashboard</title>
+	<meta charset = "UTF-8">
+	<meta name = "viewport" content = "width=device-width, initial-scale=1.0">
+	<meta http-equiv = "X-UA-Compatible" content = "ie=edge"/>
+	<link rel = "stylesheet" href = "./assets/css/reset.css">
+	<link rel = "stylesheet" href = "./assets/css/style.css">
+	<link rel = "stylesheet" href = "https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,700;0,800;0,900;1,400;1,700;1,800;1,900&display=swap">
+	<title>City Weather Dashboard</title>
 
 </head>
 
 <body>
     
-    <div class = "header">
+	<div class = "header">
 
-        <h1>Weather Dashboard</h1>
+		<h1>Weather Dashboard</h1>
 
-    </div>
+	</div>
 
-    <div class = "main-content">
+	<div class = "main-content">
 
-        <div class = "city-content">
+		<div class = "city-content">
 
-            <div class = "city-search">
+			<div class = "city-search">
 
-                <h2>Search for a City:</h2>
-                <input class = "search-input" placeholder = "Toronto"/>
-                <button class = "search-button">Search</button>
+				<h2>Search for a City:</h2>
+				<input class = "search-input" placeholder = "Toronto"/>
+				<button class = "search-button">Search</button>
 
-            </div>
+			</div>
 
-            <ul class = "search-history">
+			<ul class = "search-history">
 
-                <li><button>Scarborough</button></li>
-                <li><button>Mississauga</button></li>
-                <li><button>Newmarket</button></li>
-                <li><button>Richmond Hill</button></li>
+				<li><button>Scarborough</button></li>
+				<li><button>Mississauga</button></li>
+				<li><button>Newmarket</button></li>
+				<li><button>Richmond Hill</button></li>
 
-            </ul>
-        </div>
+			</ul>
+		</div>
 
-        <div class = "weather-content">
+		<div class = "weather-content">
 
-            <div class = "weather-today">
+			<div class = "weather-today">
 
-                <h2 class = "city-name">Toronto (2023/08/17)</h2>
-                <img>
-                <p class = temperature>Temp: 21.0°C</p>
-                <p class = wind-speed>16.2 KM / H</p>
-                <p class = humidity>27%</p>
+				<h2 class = "city-name">Toronto (2023/08/17)</h2>
+				<img src = "http://openweathermap.org/img/w/10d.png">
+				<p class = "temperature">Temp: 21.0°C</p>
+				<p class = "wind-speed">16.2 KM / H</p>
+				<p class = "humidity">27%</p>
 
-            </div>
+			</div>
 
-            <h3>5-Day Forecast:</h3>
+			<h3>5-Day Forecast:</h3>
 
-            <div class = "weather-five-day">
+			<div class = "weather-five-day">
 
-                <div class = day-one>
+				<div class = day-one>
 
-                    <h3>2023/08/18</h3>
-                    <img>
-                    <p class = temperature>Temp: 21.0°C</p>
-                    <p class = wind-speed>160.2 KM / H</p>
-                    <p class = humidity>2%</p>
+					<h3>2023/08/18</h3>
+					<img src = "http://openweathermap.org/img/w/10d.png">
+					<p class = "temperature">Temp: 21.0°C</p>
+					<p class = "wind-speed">16.2 KM / H</p>
+					<p class = "humidity">27%</p>
 
-                </div>
+				</div>
 
-                <div class = day-two>
+				<div class = day-two>
 
-                    <h3>2023/08/19</h3>
-                    <img>
-                    <p class = temperature>Temp: 21.5°C</p>
-                    <p class = wind-speed>13.2 KM / H</p>
-                    <p class = humidity>7%</p>
+					<h3>2023/08/19</h3>
+					<img src = "http://openweathermap.org/img/w/10d.png">
+					<p class = "temperature">Temp: 21.0°C</p>
+					<p class = "wind-speed">16.2 KM / H</p>
+					<p class = "humidity">27%</p>
 
-                </div>
+				</div>
 
-                <div class = day-three>
+				<div class = day-three>
 
-                    <h3>2023/08/20</h3>
-                    <img>
-                    <p class = temperature>Temp: 22.0°C</p>
-                    <p class = wind-speed>14.2 KM / H</p>
-                    <p class = humidity>29%</p>
+					<h3>2023/08/20</h3>
+					<img src = "http://openweathermap.org/img/w/10d.png">
+					<p class = "temperature">Temp: 21.0°C</p>
+					<p class = "wind-speed">16.2 KM / H</p>
+					<p class = "humidity">27%</p>
 
-                </div>
+				</div>
 
-                <div class = day-four>
+				<div class = day-four>
 
-                    <h3>2023/08/21</h3>
-                    <img>
-                    <p class = temperature>Temp: 22.5°C</p>
-                    <p class = wind-speed>12.2 KM / H</p>
-                    <p class = humidity>270%</p>
+					<h3>2023/08/21</h3>
+					<img src = "http://openweathermap.org/img/w/10d.png">
+					<p class = "temperature">Temp: 21.0°C</p>
+					<p class = "wind-speed">16.2 KM / H</p>
+					<p class = "humidity">27%</p>
 
-                </div>
+				</div>
 
-                <div class = day-five>
+				<div class = day-five>
 
-                    <h3>2023/08/22</h3>
-                    <img>
-                    <p class = temperature>Temp: 23.0°C</p>
-                    <p class = wind-speed>18.2 KM / H</p>
-                    <p class = humidity>237%</p>
+					<h3>2023/08/22</h3>
+					<img src = "http://openweathermap.org/img/w/10d.png">
+					<p class = "temperature">Temp: 21.0°C</p>
+					<p class = "wind-speed">16.2 KM / H</p>
+					<p class = "humidity">27%</p>
 
-                </div>
-            </div>
-        </div>
-    </div>
+				</div>
+			</div>
+		</div>
+	</div>
 
-    <script src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src = "https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js" integrity = "sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin = "anonymous"></script>
-    <script src = "./assets/scripts/script.js"></script>
+	<script src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src = "https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js" integrity = "sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin = "anonymous"></script>
+	<script src = "./assets/scripts/script.js"></script>
 
 </body>
 
