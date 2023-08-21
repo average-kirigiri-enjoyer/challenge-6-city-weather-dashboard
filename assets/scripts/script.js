@@ -26,7 +26,7 @@ var fiveDayWeather = $(".weather-five-day").children();
 async function getWeatherData(searchedCity)
 {
 	//defines URL to geocode city name searched by user into coordinates
-	var geocodeURL = "http://api.openweathermap.org/geo/1.0/direct?q=" + searchedCity + "&limit=1&appid=" + APIKey + "&units=metric";
+	var geocodeURL = "https://api.openweathermap.org/geo/1.0/direct?q=" + searchedCity + "&limit=1&appid=" + APIKey + "&units=metric";
 
 	//retrieves coordinates of city the user searched for
 	await fetch(geocodeURL)
@@ -60,7 +60,7 @@ async function getWeatherData(searchedCity)
 
 	//defines URLs to retrieve weather data from searched city coordinates
 	var todayWeatherURL = "https://api.openweathermap.org/data/2.5/weather?lat=" + latitude + "&lon=" + longitude + "&limit=1&appid=" + APIKey + "&units=metric";
-	var fiveDayWeatherURL = "http://api.openweathermap.org/data/2.5/forecast?lat=" + latitude + "&lon=" + longitude + "&limit=5&appid=" + APIKey + "&units=metric";
+	var fiveDayWeatherURL = "https://api.openweathermap.org/data/2.5/forecast?lat=" + latitude + "&lon=" + longitude + "&limit=5&appid=" + APIKey + "&units=metric";
 
 	//retrieves today's weather data from searched city coordinates and updates the page accordingly
 	await fetch(todayWeatherURL)
@@ -72,7 +72,7 @@ async function getWeatherData(searchedCity)
 	{
 		//update today's weather data with that of the searched city
 		weatherToday.children(".city-name").text(searchedCity + " (" + dayjs().format("YYYY/MM/DD") + ")");
-		weatherToday.children("img").attr("src", "http://openweathermap.org/img/w/" + data.weather[0].icon.slice(0, -1) + "d.png"); 
+		weatherToday.children("img").attr("src", "http://openweathermap.org/img/w/" + data.weather[0].icon + ".png"); 
 		weatherToday.children(".temperature").text("Temp: " + data.main.temp + "°C");
 		weatherToday.children(".wind-speed").text("Wind: " + data.wind.speed + " KM / H");
 		weatherToday.children(".humidity").text("Humidity: " + data.main.humidity + "%");

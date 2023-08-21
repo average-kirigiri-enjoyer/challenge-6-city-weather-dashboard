@@ -186,7 +186,7 @@ button:hover
 	background-color: var(--dark-grey);
 }
 
-/* slightly increases gap above five-day forecast weather icons */
+/* increases gap above five-day forecast weather icons */
 .weather-five-day img
 {
 	margin-top: 10px;
