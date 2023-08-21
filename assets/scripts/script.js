@@ -13,12 +13,12 @@ var latitude;
 var longitude;
 var searchedCity;
 var searchSuccessful;
+var historyStorage;
 
 //gets references to HTML elements necessary for weather app functionality
 var citySearchInput = $(".search-input");
 var searchButton = $(".search-button");
 var searchHistory = $(".search-history");
-var searchHistoryEntries = searchHistory.children();
 var weatherToday = $(".weather-today");
 var fiveDayWeather = $(".weather-five-day").children();
 
@@ -129,6 +129,39 @@ function addCityToHistory(searchedCity)
 	{
 		searchHistory.children().last().remove();
 	}
+
+	//sets history storage to an empty array
+	historyStorage = [];
+
+	//creates a new entry in history array for each city in the search history
+	for (entry = 0; entry < searchHistory.children().length; entry++)
+	{
+		var searchEntry = $(searchHistory.children()[entry]).text();
+		historyStorage.push(searchEntry);
+	}
+
+	//sends search history data to local storage
+	localStorage.setItem("searchHistory", JSON.stringify(historyStorage));
+}
+
+//function to load and render search history data from local storage
+function loadSearchHistory()
+{
+	//if there is no search history data in local storage, eject from function
+	if (!localStorage.getItem("searchHistory"))
+	{
+		return;
+	}
+	
+	//retrieves search history data from local storage
+	var storedSearchHistory = JSON.parse(localStorage.getItem("searchHistory"));
+
+	//creates a new search history entry for each item in the local storage array, and renders it to the page
+	for (entry = 0; entry < storedSearchHistory.length; entry++)
+	{
+		var citySearchEntry = $("<button>").text(storedSearchHistory[entry]);
+		citySearchEntry.appendTo(searchHistory);
+	}
 }
 
 //waits until document is finished loading before the following code can run
@@ -136,6 +169,9 @@ $(document).ready(function() {
 
 	//retrieves toronto's weather data as a placeholder until the user searches for a city themselves
 	getWeatherData("Toronto");
+
+	//attempts to retrieve search history data
+	loadSearchHistory();
 
 	//attempts to render weather data of city in search history when user clicks on an entry
 	searchHistory.on("click", function()
