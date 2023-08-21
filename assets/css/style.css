@@ -2,7 +2,7 @@
 ethan (average-kirigiri-enjoyer)
 SCS Boot Camp Module 6 Weekly Challenge - City Weather Dashboard
 Created 2023/08/16
-Last Edited 2023/08/20
+Last Edited 2023/08/21
 */
 
 /* defines variables for HTML colour codes */
@@ -173,13 +173,13 @@ button:hover
 {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 
 /* displays five-day forecast blocks in-line with each other */
 .weather-five-day div
 {
-    margin-top: 25px;
+    margin-top: 20px;
     padding: 15px;
     display: inline-block;
     color: #ffffff;

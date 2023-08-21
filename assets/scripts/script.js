@@ -2,7 +2,7 @@
 ethan (average-kirigiri-enjoyer)
 SCS Boot Camp Module 6 Weekly Challenge - City Weather Dashboard
 Created 2023/08/16
-Last Edited 2023/08/20
+Last Edited 2023/08/21
 */
 
 //openweathermap API key
@@ -12,6 +12,7 @@ APIKey = "2fae20ca26e4a9b0f2e2e5c58c74a9be";
 var latitude;
 var longitude;
 var searchedCity;
+var searchSuccessful;
 
 //gets references to HTML elements necessary for weather app functionality
 var citySearchInput = $(".search-input");
@@ -34,10 +35,15 @@ async function getWeatherData(searchedCity)
 	})
 	.then(function(data)
 	{
-		//if data for the city name input by the user could not be found and inform the user as such
+		//if data for the city name input by the user could not be found, inform the user as such, and mark the search as a failure
 		if (data[0] == undefined)
 		{
+			searchSuccessful = false;
 			alert("Data for the city '" + searchedCity + "' could not be found; please try again.");
+		}
+		else //otherwise, mark the search as a success
+		{
+			searchSuccessful = true;
 		}
 
 		//retrieve coordinates of searched city
@@ -110,6 +116,20 @@ async function getWeatherData(searchedCity)
 	});
 }
 
+//function to add a searched city to search history
+function addCityToHistory(searchedCity)
+{
+	//creates new button element based on searched city, and adds it to search history list
+	var citySearchEntry = $("<button>").text(searchedCity);
+	citySearchEntry.prependTo(searchHistory);
+
+	//if the search history exceeds nine entries, remove the oldest entry
+	if (searchHistory.children().length > 9)
+	{
+		searchHistory.children().last().remove();
+	}
+}
+
 //waits until document is finished loading before the following code can run
 $(document).ready(function() {
 
@@ -117,7 +137,7 @@ $(document).ready(function() {
 	getWeatherData("Toronto");
 
 	//attempts to update weather data when user clicks the search button
-	searchButton.click(function()
+	searchButton.click(async function()
 	{
 		//retrieves text content of the city search box
 		searchedCity = citySearchInput.val();
@@ -130,12 +150,18 @@ $(document).ready(function() {
 		}
 
 		//attempts to update weather data with that of the city the user searched for
-		getWeatherData(searchedCity);
+		await getWeatherData(searchedCity);
 
-		//adds searched city to search history
-		//FUNCTION TO ADD TO SEARCH HISTORY GOES HERE
+		//if previous city search was not successful, eject from function
+		if (!searchSuccessful)
+		{
+			return;
+		}
+
+		//add city to search history
+		addCityToHistory(searchedCity);
 
 		//empties search box
 		citySearchInput.val("");
-	})
+	});
 });
