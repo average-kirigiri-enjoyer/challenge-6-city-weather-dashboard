@@ -2,7 +2,7 @@
 ethan (average-kirigiri-enjoyer)
 SCS Boot Camp Module 6 Weekly Challenge - City Weather Dashboard
 Created 2023/08/16
-Last Edited 2023/08/20
+Last Edited 2023/08/21
 */
 
 //openweathermap API key
@@ -12,6 +12,8 @@ APIKey = "2fae20ca26e4a9b0f2e2e5c58c74a9be";
 var latitude;
 var longitude;
 var searchedCity;
+var searchSuccessful;
+var historyStorage;
 
 //gets references to HTML elements necessary for weather app functionality
 var citySearchInput = $(".search-input");
@@ -34,10 +36,15 @@ async function getWeatherData(searchedCity)
 	})
 	.then(function(data)
 	{
-		//if data for the city name input by the user could not be found and inform the user as such
+		//if data for the city name input by the user could not be found, inform the user as such, and mark the search as a failure
 		if (data[0] == undefined)
 		{
+			searchSuccessful = false;
 			alert("Data for the city '" + searchedCity + "' could not be found; please try again.");
+		}
+		else //otherwise, mark the search as a success
+		{
+			searchSuccessful = true;
 		}
 
 		//retrieve coordinates of searched city
@@ -110,14 +117,79 @@ async function getWeatherData(searchedCity)
 	});
 }
 
+//function to add a searched city to search history
+function addCityToHistory(searchedCity)
+{
+	//creates new button element based on searched city, and adds it to search history list
+	var citySearchEntry = $("<button>").text(searchedCity);
+	citySearchEntry.prependTo(searchHistory);
+
+	//if the search history exceeds twelve entries, remove the oldest entry
+	if (searchHistory.children().length > 12)
+	{
+		searchHistory.children().last().remove();
+	}
+
+	//sets history storage to an empty array
+	historyStorage = [];
+
+	//creates a new entry in history array for each city in the search history
+	for (entry = 0; entry < searchHistory.children().length; entry++)
+	{
+		var searchEntry = $(searchHistory.children()[entry]).text();
+		historyStorage.push(searchEntry);
+	}
+
+	//sends search history data to local storage
+	localStorage.setItem("searchHistory", JSON.stringify(historyStorage));
+}
+
+//function to load and render search history data from local storage
+function loadSearchHistory()
+{
+	//if there is no search history data in local storage, render Toronto's weather data as a placeholder, and eject from function
+	if (!localStorage.getItem("searchHistory"))
+	{
+		getWeatherData("Toronto");
+		return;
+	}
+	
+	//retrieves search history data from local storage
+	var storedSearchHistory = JSON.parse(localStorage.getItem("searchHistory"));
+
+	//displays weather data of previous search
+	getWeatherData(storedSearchHistory[0]);
+
+	//creates a new search history entry for each item in the local storage array, and renders it to the page
+	for (entry = 0; entry < storedSearchHistory.length; entry++)
+	{
+		var citySearchEntry = $("<button>").text(storedSearchHistory[entry]);
+		citySearchEntry.appendTo(searchHistory);
+	}
+}
+
 //waits until document is finished loading before the following code can run
 $(document).ready(function() {
 
-	//retrieves toronto's weather data as a placeholder until the user searches for a city themselves
-	getWeatherData("Toronto");
+	//attempts to retrieve search history data
+	loadSearchHistory();
+
+	//attempts to render weather data of city in search history when user clicks on an entry
+	searchHistory.on("click", function()
+	{
+		//checks if the user clicked between the search history entries, ejecting from the function if so
+		if ($(event.target).text() === searchHistory.text())
+		{
+			return;
+		}
+
+		//retrieves weather data from clicked search history entry
+		searchedCity = $(event.target).text();
+		getWeatherData(searchedCity);
+	});
 
 	//attempts to update weather data when user clicks the search button
-	searchButton.click(function()
+	searchButton.on("click", async function()
 	{
 		//retrieves text content of the city search box
 		searchedCity = citySearchInput.val();
@@ -130,12 +202,18 @@ $(document).ready(function() {
 		}
 
 		//attempts to update weather data with that of the city the user searched for
-		getWeatherData(searchedCity);
+		await getWeatherData(searchedCity);
 
-		//adds searched city to search history
-		//FUNCTION TO ADD TO SEARCH HISTORY GOES HERE
+		//if previous city search was not successful, eject from function
+		if (!searchSuccessful)
+		{
+			return;
+		}
+
+		//add city to search history
+		addCityToHistory(searchedCity);
 
 		//empties search box
 		citySearchInput.val("");
-	})
+	});
 });
