@@ -72,7 +72,7 @@ async function getWeatherData(searchedCity)
 	{
 		//update today's weather data with that of the searched city
 		weatherToday.children(".city-name").text(searchedCity + " (" + dayjs().format("YYYY/MM/DD") + ")");
-		weatherToday.children("img").attr("src", "http://openweathermap.org/img/w/" + data.weather[0].icon + ".png"); 
+		weatherToday.children("img").attr("src", "https://openweathermap.org/img/w/" + data.weather[0].icon + ".png"); 
 		weatherToday.children(".temperature").text("Temp: " + data.main.temp + "°C");
 		weatherToday.children(".wind-speed").text("Wind: " + data.wind.speed + " KM / H");
 		weatherToday.children(".humidity").text("Humidity: " + data.main.humidity + "%");
@@ -88,35 +88,35 @@ async function getWeatherData(searchedCity)
 	{
 		//update first day of five-day weather forecast with that of the searched city
 		$(fiveDayWeather[0]).children("h3").text(dayjs().add(1, "d").format("YYYY/MM/DD"));
-		$(fiveDayWeather[0]).children("img").attr("src", "http://openweathermap.org/img/w/" + data.list[1].weather[0].icon.slice(0, -1) + "d.png"); //slices last character off icon string & replaces it with "d" such that the daytime variation of each icon will always be displayed
+		$(fiveDayWeather[0]).children("img").attr("src", "https://openweathermap.org/img/w/" + data.list[1].weather[0].icon.slice(0, -1) + "d.png"); //slices last character off icon string & replaces it with "d" such that the daytime variation of each icon will always be displayed
 		$(fiveDayWeather[0]).children(".temperature").text("Temp: " + data.list[1].main.temp + "°C");
 		$(fiveDayWeather[0]).children(".wind-speed").text("Wind: " + data.list[1].wind.speed + " KM / H");
 		$(fiveDayWeather[0]).children(".humidity").text("Humidity: " + data.list[1].main.humidity + "%");
 
 		//update second day of five-day weather forecast with that of the searched city
 		$(fiveDayWeather[1]).children("h3").text(dayjs().add(2, "d").format("YYYY/MM/DD"));
-		$(fiveDayWeather[1]).children("img").attr("src", "http://openweathermap.org/img/w/" + data.list[2].weather[0].icon.slice(0, -1) + "d.png");
+		$(fiveDayWeather[1]).children("img").attr("src", "https://openweathermap.org/img/w/" + data.list[2].weather[0].icon.slice(0, -1) + "d.png");
 		$(fiveDayWeather[1]).children(".temperature").text("Temp: " + data.list[2].main.temp + "°C");
 		$(fiveDayWeather[1]).children(".wind-speed").text("Wind: " + data.list[2].wind.speed + " KM / H");
 		$(fiveDayWeather[1]).children(".humidity").text("Humidity: " + data.list[2].main.humidity + "%");
 
 		//update third day of five-day weather forecast with that of the searched city
 		$(fiveDayWeather[2]).children("h3").text(dayjs().add(3, "d").format("YYYY/MM/DD"));
-		$(fiveDayWeather[2]).children("img").attr("src", "http://openweathermap.org/img/w/" + data.list[3].weather[0].icon.slice(0, -1) + "d.png");
+		$(fiveDayWeather[2]).children("img").attr("src", "https://openweathermap.org/img/w/" + data.list[3].weather[0].icon.slice(0, -1) + "d.png");
 		$(fiveDayWeather[2]).children(".temperature").text("Temp: " + data.list[3].main.temp + "°C");
 		$(fiveDayWeather[2]).children(".wind-speed").text("Wind: " + data.list[3].wind.speed + " KM / H");
 		$(fiveDayWeather[2]).children(".humidity").text("Humidity: " + data.list[3].main.humidity + "%");
 
 		//update fourth day of five-day weather forecast with that of the searched city
 		$(fiveDayWeather[3]).children("h3").text(dayjs().add(4, "d").format("YYYY/MM/DD"));
-		$(fiveDayWeather[3]).children("img").attr("src", "http://openweathermap.org/img/w/" + data.list[4].weather[0].icon.slice(0, -1) + "d.png");
+		$(fiveDayWeather[3]).children("img").attr("src", "https://openweathermap.org/img/w/" + data.list[4].weather[0].icon.slice(0, -1) + "d.png");
 		$(fiveDayWeather[3]).children(".temperature").text("Temp: " + data.list[4].main.temp + "°C");
 		$(fiveDayWeather[3]).children(".wind-speed").text("Wind: " + data.list[4].wind.speed + " KM / H");
 		$(fiveDayWeather[3]).children(".humidity").text("Humidity: " + data.list[4].main.humidity + "%");
 
 		//update fifth day of five-day weather forecast with that of the searched city
 		$(fiveDayWeather[4]).children("h3").text(dayjs().add(5, "d").format("YYYY/MM/DD"));
-		$(fiveDayWeather[4]).children("img").attr("src", "http://openweathermap.org/img/w/" + data.list[5].weather[0].icon.slice(0, -1) + "d.png");
+		$(fiveDayWeather[4]).children("img").attr("src", "https://openweathermap.org/img/w/" + data.list[5].weather[0].icon.slice(0, -1) + "d.png");
 		$(fiveDayWeather[4]).children(".temperature").text("Temp: " + data.list[5].main.temp + "°C");
 		$(fiveDayWeather[4]).children(".wind-speed").text("Wind: " + data.list[5].wind.speed + " KM / H");
 		$(fiveDayWeather[4]).children(".humidity").text("Humidity: " + data.list[5].main.humidity + "%");
