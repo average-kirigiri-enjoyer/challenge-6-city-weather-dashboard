@@ -18,6 +18,7 @@ var searchSuccessful;
 var citySearchInput = $(".search-input");
 var searchButton = $(".search-button");
 var searchHistory = $(".search-history");
+var searchHistoryEntries = searchHistory.children();
 var weatherToday = $(".weather-today");
 var fiveDayWeather = $(".weather-five-day").children();
 
@@ -123,8 +124,8 @@ function addCityToHistory(searchedCity)
 	var citySearchEntry = $("<button>").text(searchedCity);
 	citySearchEntry.prependTo(searchHistory);
 
-	//if the search history exceeds nine entries, remove the oldest entry
-	if (searchHistory.children().length > 9)
+	//if the search history exceeds twelve entries, remove the oldest entry
+	if (searchHistory.children().length > 12)
 	{
 		searchHistory.children().last().remove();
 	}
@@ -136,8 +137,22 @@ $(document).ready(function() {
 	//retrieves toronto's weather data as a placeholder until the user searches for a city themselves
 	getWeatherData("Toronto");
 
+	//attempts to render weather data of city in search history when user clicks on an entry
+	searchHistory.on("click", function()
+	{
+		//checks if the user clicked between the search history entries, ejecting from the function if so
+		if ($(event.target).text() === searchHistory.text())
+		{
+			return;
+		}
+
+		//retrieves weather data from clicked search history entry
+		searchedCity = $(event.target).text();
+		getWeatherData(searchedCity);
+	});
+
 	//attempts to update weather data when user clicks the search button
-	searchButton.click(async function()
+	searchButton.on("click", async function()
 	{
 		//retrieves text content of the city search box
 		searchedCity = citySearchInput.val();
