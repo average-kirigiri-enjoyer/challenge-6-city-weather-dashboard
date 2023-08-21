@@ -52,6 +52,12 @@ async function getWeatherData(searchedCity)
 		longitude = data[0].lon;
 	});
 
+	//if previous city search was not successful, eject from function
+	if (!searchSuccessful)
+	{
+		return;
+	}
+
 	//defines URLs to retrieve weather data from searched city coordinates
 	var todayWeatherURL = "https://api.openweathermap.org/data/2.5/weather?lat=" + latitude + "&lon=" + longitude + "&limit=1&appid=" + APIKey + "&units=metric";
 	var fiveDayWeatherURL = "http://api.openweathermap.org/data/2.5/forecast?lat=" + latitude + "&lon=" + longitude + "&limit=5&appid=" + APIKey + "&units=metric";
@@ -130,10 +136,9 @@ function addCityToHistory(searchedCity)
 		searchHistory.children().last().remove();
 	}
 
-	//sets history storage to an empty array
+	//sets history storage to an empty array, and creates a new entry in history array for each city in the search history
 	historyStorage = [];
 
-	//creates a new entry in history array for each city in the search history
 	for (entry = 0; entry < searchHistory.children().length; entry++)
 	{
 		var searchEntry = $(searchHistory.children()[entry]).text();
@@ -154,10 +159,8 @@ function loadSearchHistory()
 		return;
 	}
 	
-	//retrieves search history data from local storage
+	//retrieves search history data from local storage and displays weather data of previous search
 	var storedSearchHistory = JSON.parse(localStorage.getItem("searchHistory"));
-
-	//displays weather data of previous search
 	getWeatherData(storedSearchHistory[0]);
 
 	//creates a new search history entry for each item in the local storage array, and renders it to the page

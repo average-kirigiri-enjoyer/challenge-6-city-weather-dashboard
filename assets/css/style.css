@@ -191,3 +191,43 @@ button:hover
 {
 	margin-top: 10px;
 }
+
+/* modifies size & other display settings for elements at moderate window sizes */
+@media screen and (max-width: 1080px)
+{
+	h2
+	{
+		font-size: 175%;
+	}
+	h3
+	{
+		font-size: 150%;
+	}
+	.weather-content p
+	{
+		font-size: 125%;
+	}
+	.weather-content h3
+	{
+		text-align: center;
+	}
+	.weather-today img
+	{
+		position: relative;
+		display: block;
+		margin-top: 10px;
+	}
+}
+
+/* reduces size of city content buttons and search input at small window sizes */
+@media screen and (max-width: 640px)
+{
+	input
+	{
+		font-size: 125%;
+	}
+	button
+	{
+		font-size: 100%;
+	}
+}
