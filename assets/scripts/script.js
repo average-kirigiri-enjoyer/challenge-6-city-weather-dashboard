@@ -147,14 +147,18 @@ function addCityToHistory(searchedCity)
 //function to load and render search history data from local storage
 function loadSearchHistory()
 {
-	//if there is no search history data in local storage, eject from function
+	//if there is no search history data in local storage, render Toronto's weather data as a placeholder, and eject from function
 	if (!localStorage.getItem("searchHistory"))
 	{
+		getWeatherData("Toronto");
 		return;
 	}
 	
 	//retrieves search history data from local storage
 	var storedSearchHistory = JSON.parse(localStorage.getItem("searchHistory"));
+
+	//displays weather data of previous search
+	getWeatherData(storedSearchHistory[0]);
 
 	//creates a new search history entry for each item in the local storage array, and renders it to the page
 	for (entry = 0; entry < storedSearchHistory.length; entry++)
@@ -166,9 +170,6 @@ function loadSearchHistory()
 
 //waits until document is finished loading before the following code can run
 $(document).ready(function() {
-
-	//retrieves toronto's weather data as a placeholder until the user searches for a city themselves
-	getWeatherData("Toronto");
 
 	//attempts to retrieve search history data
 	loadSearchHistory();
