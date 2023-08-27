@@ -8,7 +8,7 @@ Whether you're planning a trip or just planning your day, how you dress and what
 
 View the City Weather Dashboard here;
 
-https://average-kirigiri-enjoyer.github.io/city-weather-dashboard/
+https://average-kirigiri-enjoyer.github.io/challenge-6-city-weather-dashboard/
 
 There will be four main sections on the page (though on the first visit, one of the won't be visible); the city search UI + search history on the left, and today's weather + five-day forecast on the right.
 
