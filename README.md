@@ -10,7 +10,7 @@ View the City Weather Dashboard here;
 
 https://average-kirigiri-enjoyer.github.io/challenge-6-city-weather-dashboard/
 
-There will be four main sections on the page (though on the first visit, one of the won't be visible); the city search UI + search history on the left, and today's weather + five-day forecast on the right.
+There will be four main sections on the page (though on the first visit, one of them won't be visible); the city search UI + search history on the left, and today's weather + five-day forecast on the right.
 
 In the city search UI in the top left, there will be an input box with a search button below. Enter the name of the city you want to view the forecast for, and click search to have that city's weather forecast rendered to the page. Directly to the right, today's weather (icon indicating weather conditions, temperature, wind speed, and humidity) will be displayed in a box. Below, there will be five gray boxes highlighting the expected weather conditions for the next five days.
 
